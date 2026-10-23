@@ -1,0 +1,9 @@
+* text=auto eol=lf
+*.ps1 text eol=crlf
+*.ico binary
+*.exe binary
+*.zip binary
+# Preserve embedded resource bytes between the working tree and Git index.
+ui/* -text
+docs/THIRD-PARTY-NOTICES.md -text
+

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="nut-token" content="__NUT_TOKEN__"><meta name="color-scheme" content="dark">
+  <title>NUT Studio v1.1.5 · NUT65 CU</title><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css">
+  <script src="core.js" defer></script><script src="app.js" defer></script>
+</head>
+<body>
+<svg class="svg-library" xmlns="http://www.w3.org/2000/svg"><defs>
+ <symbol id="i-keyboard" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M6 9h.01M10 9h.01M14 9h.01M18 9h.01M6 12h.01M10 12h.01M14 12h.01M18 12h.01M7 15h10"/></symbol>
+ <symbol id="i-light" viewBox="0 0 24 24"><path d="m12 3-1.5 6.5L4 12l6.5 1.5L12 21l1.5-7.5L20 12l-6.5-2.5Z"/><path d="m20 2 .5 2 1.5 1-1.5.5L20 8l-.5-2.5L18 5l1.5-1Z"/></symbol>
+ <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 3 10 5-10 5L2 8zM2 12l10 5 10-5M2 16l10 5 10-5"/></symbol>
+ <symbol id="i-test" viewBox="0 0 24 24"><path d="M4 4h5M4 4v5M20 4h-5M20 4v5M4 20h5M4 20v-5M20 20h-5M20 20v-5m-12-3 3 3 5-6"/></symbol>
+ <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5"/></symbol>
+ <symbol id="i-usb" viewBox="0 0 24 24"><path d="M12 20V4m-3 3 3-3 3 3M12 15l-5-4V8m5 5 5-4V6"/><circle cx="12" cy="20" r="1"/><circle cx="7" cy="6" r="1"/><path d="M16 3h2v3h-2z"/></symbol>
+ <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 8a8 8 0 1 0 0 8M20 3v5h-5"/></symbol>
+ <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m-4-4 4 4 4-4M4 16v4h16v-4"/></symbol>
+ <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 16V4m-4 4 4-4 4 4M4 16v4h16v-4"/></symbol>
+ <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+ <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></symbol>
+ <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6m0-10v.01"/></symbol>
+ <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+ <symbol id="i-power" viewBox="0 0 24 24"><path d="M12 2v10M6 5a9 9 0 1 0 12 0"/></symbol>
+ <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 7h16M4 17h16"/><circle cx="8" cy="7" r="3"/><circle cx="16" cy="17" r="3"/></symbol>
+</defs></svg>
+<div class="shell">
+ <aside class="sidebar">
+  <a class="brand" href="#keymap" aria-label="NUT Studio 首页"><span class="brand-logo">N</span><span>NUT<span class="brand-small">STUDIO</span></span></a>
+  <div class="nav-caption">工作空间</div>
+  <nav aria-label="主导航">
+   <button class="nav-item active" data-page="keymap"><svg><use href="#i-keyboard"/></svg><span>键位设置</span><span class="nav-dot"></span></button>
+   <button class="nav-item" data-page="lighting"><svg><use href="#i-light"/></svg><span>灯光效果</span></button>
+   <button class="nav-item" data-page="features"><svg><use href="#i-sliders"/></svg><span>设备功能</span></button>
+   <button class="nav-item" data-page="profiles"><svg><use href="#i-layers"/></svg><span>配置方案</span></button>
+   <button class="nav-item" data-page="tester"><svg><use href="#i-test"/></svg><span>按键测试</span></button>
+  </nav>
+  <div class="sidebar-bottom">
+   <div class="device-tile"><span class="mini-keyboard"><svg><use href="#i-keyboard"/></svg></span><div><b>NUT65 CU</b><span id="side-status">等待连接</span></div><span class="status-dot" id="side-dot"></span></div>
+   <button class="help-link" id="help-button"><svg><use href="#i-info"/></svg>使用帮助<span>↗</span></button>
+   <div class="version"><span>NUT STUDIO</span><span>v1.1.5</span></div>
+  </div>
+ </aside>
+ <main>
+  <div class="topbar"><div class="breadcrumb">我的设备<span>/</span><strong>NUT65 CU</strong></div><div class="topbar-right"><span class="connection-state" id="connection-state"><i></i>离线预览</span><button class="button small" id="connect-button"><svg><use href="#i-usb"/></svg>连接键盘</button></div></div>
+  <header class="device-header"><div><div class="eyebrow">WEIKAV · CUSTOM SERIES</div><h1>NUT65 <span>CU</span><span class="title-dot">.</span></h1><p>为每一次敲击，设定自己的节奏。</p><div class="device-tags"><span>65% 紧凑配列</span><span>67 KEYS</span><span>USB-C</span><span id="layer-count">5 个图层</span></div></div><div class="header-actions"><span id="pending-label" class="pending-label">已载入你的 VIA 备份</span><div><button class="button" id="read-button"><svg><use href="#i-refresh"/></svg>读取键盘</button><button class="button primary" id="apply-button"><svg><use href="#i-check"/></svg>应用键位</button></div></div></header>
+  <div class="connection-notice" id="connection-notice"><svg><use href="#i-info"/></svg><span>当前为本地预览。连接键盘后可读取实际配置，并将修改保存到键盘。</span><button id="notice-connect">开始连接 <span>↗</span></button></div>
+
+  <section class="page active" id="page-keymap" aria-label="键位设置">
+   <div class="section-heading"><div><h2>键位设置</h2><p>点击键帽，赋予它新的功能。</p></div><div class="layer-control" aria-label="图层选择" id="layers"></div></div>
+   <div class="editor-grid">
+    <div class="keyboard-panel"><div class="panel-toolbar"><span><i class="tiny-dot"></i><span id="board-layer-name">WINDOWS · 基础层</span></span><button class="text-button" id="revert-layer">恢复本层</button></div><div class="board-stage"><div class="ambient"></div><div class="keyboard-case"><div class="case-top"><span>NUT // 65</span><div class="lightbar"></div><span>CU EDITION</span></div><div class="keyboard" id="keyboard" aria-label="NUT65 CU 可视化键盘"></div><div class="case-bottom"><span>WEIKAV</span><span>DESIGNED FOR YOUR FLOW</span><span>◉</span></div></div></div><div class="board-footer"><span><i class="legend-dot"></i>已选按键</span><span><i class="legend-dot changed"></i>待应用修改</span><span class="push-right">点击编辑 · 按住 Fn 使用功能层</span></div></div>
+    <div class="selection-panel"><div class="panel-label">当前按键 <span id="selected-coord">R0 · C0</span></div><div class="selected-key" id="selected-key">Esc / ~</div><h3 id="selected-name">Esc / ~</h3><code id="selected-code">KC_GESC</code><div class="selection-divider"></div><label class="field-label" for="custom-key">键码 / 组合键</label><div class="input-action"><input id="custom-key" placeholder="如 KC_A、LCTL(KC_C)" autocomplete="off" spellcheck="false"><button id="set-custom" aria-label="设置键码"><svg><use href="#i-arrow"/></svg></button></div><p class="field-help" id="key-help">也可从下方按键库中选择新功能。</p><button class="button full" id="undo-key"><svg><use href="#i-refresh"/></svg>撤销此键修改</button></div>
+   </div>
+   <div class="key-library"><div class="library-top"><div class="library-tabs" id="key-categories" aria-label="按键分类"></div><label class="search"><svg><use href="#i-search"/></svg><input id="key-search" type="search" placeholder="搜索按键…" aria-label="搜索按键"></label></div><div class="key-options" id="key-options"></div></div>
+  </section>
+
+  <section class="page" id="page-lighting" aria-label="灯光效果" hidden>
+   <div class="section-heading"><div><h2>前灯带</h2><p>80 颗灯珠，让桌面有自己的节奏。</p></div><span class="subtle-badge" id="effect-count">35 种灯效 + 关闭</span></div>
+   <div class="lighting-grid"><div class="lighting-main"><div class="light-preview"><div class="preview-label"><span><i class="tiny-dot"></i>CU · FRONT STRIP</span><button class="text-button" id="pause-preview">暂停动画</button></div><div class="keyboard-case preview-case"><div class="case-top"><span>NUT // 65</span><span>CU EDITION</span></div><div class="keyboard light-keyboard" id="light-keyboard"></div><div class="case-bottom"><span>WEIKAV</span><span>FRONT LIGHT STRIP · 80 LEDS</span><span>◉</span></div><div class="strip-recess"><div class="front-strip" id="front-strip" role="img" aria-label="键盘前方 80 颗灯珠效果示意"></div></div></div><p id="strip-caption">前灯带灯效示意</p><span class="preview-disclaimer">效果示意 · 实际表现以键盘为准</span></div><div class="strip-modes" id="strip-modes" aria-label="前灯带工作模式"></div><p class="effects-note" id="effects-note"></p><div class="effects-heading"><h3>选择灯效</h3><label class="search"><svg><use href="#i-search"/></svg><input id="effect-search" type="search" placeholder="名称或编号…" aria-label="搜索灯效"></label></div><div class="effect-grid" id="effect-grid"></div></div>
+   <aside class="lighting-settings"><div class="panel-label">灯带参数<svg><use href="#i-sliders"/></svg></div><h3 id="active-effect">灯带 · 彩虹追逐</h3><p class="muted" id="lighting-status">连接后读取键盘当前灯光</p><div class="setting-row"><label for="brightness">亮度</label><output id="brightness-value">72%</output></div><input id="brightness" type="range" min="0" max="255" value="184"><div class="range-endpoints"><span>柔和</span><span>明亮</span></div><div class="setting-row"><label for="speed">流动速度</label><output id="speed-value">50%</output></div><input id="speed" type="range" min="0" max="255" value="128"><div class="range-endpoints"><span>舒缓</span><span>活跃</span></div><div class="setting-row"><label for="light-color">灯带颜色</label><span id="color-hex">#E8A07C</span></div><div class="color-control"><input id="light-color" type="color" value="#e8a07c"><div><b>自定义颜色</b><span>选择你喜欢的色彩</span></div></div><div class="color-swatches" id="color-swatches"></div><p class="field-help">部分灯效使用固定或随机颜色，部分模式忽略速度参数。</p><div class="selection-divider"></div><button class="button full" id="light-off"><svg><use href="#i-power"/></svg>关闭灯带效果</button><button class="button full" id="open-features"><svg><use href="#i-sliders"/></svg>计时与专属功能</button><p class="field-help">连接后调整实时生效，停止操作约 1 秒后自动保存。音乐等模式由固件接管显示。</p></aside></div>
+  </section>
+
+  <section class="page" id="page-features" aria-label="设备功能" hidden>
+   <div class="section-heading"><div><h2>设备功能</h2><p>为你的 CU 固件准备的专属设置。</p></div><span class="subtle-badge" id="firmware-badge">CU V37 · 离线预览</span></div>
+   <p class="features-status" id="features-status"></p>
+   <div class="features-grid">
+    <article class="feature-card"><div class="feature-title"><span class="feature-icon">◷</span><div><h3>番茄钟</h3><p id="timer-summary">25 分钟专注 / 5 分钟休息</p></div></div><div class="feature-fields"><label>专注时长<select id="setting-workMinutes"><option value="5">5 分钟</option><option value="10">10 分钟</option><option value="15">15 分钟</option><option value="20">20 分钟</option><option value="25">25 分钟</option><option value="30">30 分钟</option><option value="35">35 分钟</option></select></label><label>休息时长<select id="setting-breakMinutes"><option value="5">5 分钟</option><option value="10">10 分钟</option></select></label></div><p class="field-help">选择“番茄钟”灯带模式，再通过“番茄钟开始 / 切换阶段”专用键启动或切换阶段。灯带呈现设备上的进度。</p></article>
+    <article class="feature-card"><div class="feature-title"><span class="feature-icon">☾</span><div><h3>工作模式与节能</h3><p>设置灯带和无线休眠</p></div></div><div class="feature-fields"><label>灯带工作模式<select id="setting-stripMode"><option value="0">SYNC · 同步灯效</option><option value="1">MUSIC · 音乐律动</option><option value="2" disabled>BAT · 无线电量（USB 不支持设置）</option><option value="3">SPEED · 打字速度</option><option value="4">POMODORO · 番茄钟</option></select></label><label>无线休眠时间<select id="setting-sleepTimeout"><option value="0">永不休眠</option><option value="1">15 秒</option><option value="2">30 秒</option><option value="3">1 分钟</option><option value="4">2 分钟</option><option value="5">5 分钟</option><option value="6">10 分钟</option><option value="7">15 分钟</option><option value="8">20 分钟</option><option value="9">25 分钟</option><option value="10">30 分钟</option></select></label></div><p class="field-help">USB 有线模式下不休眠；此参数供无线使用。音乐使用键盘内置麦克风，打字速度由固件计算。软件没有读取实时数据。</p></article>
+    <article class="feature-card"><div class="feature-title"><span class="feature-icon">⌘</span><div><h3>专用快捷键</h3><p>查看当前分配，或为功能选择按键</p></div></div><div class="shortcut-grid" id="shortcut-grid"></div><p class="field-help">位置来自当前预览。先选择键帽，再选择功能；应用保存后按下实体键触发。电量查询只在无线模式有效。</p></article>
+    <article class="feature-card"><div class="feature-title"><span class="feature-icon">↔</span><div><h3>RGB 控制协议</h3><p>VIA / OpenRGB / SignalRGB</p></div></div><p class="feature-copy">使用本软件时，将键盘设为 <b>VIA</b> 控制模式。固件默认通过 <kbd>Fn</kbd> + <kbd>Y</kbd> 循环切换；如果已经改键，请使用“RGB 控制协议切换”专用键。</p><div class="protocol-options"><span><i class="protocol-red"></i>VIA · 红色反馈</span><span><i class="protocol-green"></i>OpenRGB · 绿色反馈</span><span><i class="protocol-blue"></i>SignalRGB · 蓝色反馈</span></div><p class="feature-copy">一次使用一个灯光控制软件。切换到外部 RGB 软件后，按该项目说明安装对应插件；回到本软件前切回 VIA 并重新读取。</p><div class="selection-divider"></div><p class="field-help">本版集成 CU 配置菜单与专用键码。AI Agent 是仓库中的标准版功能；CU 不提供这项硬件功能。</p><a class="source-link" href="https://gitee.com/packOrTake/weika-nut65-firmware" target="_blank" rel="noopener noreferrer">查看固件项目与插件说明 ↗</a></article>
+   </div>
+  </section>
+
+  <section class="page" id="page-profiles" aria-label="配置方案" hidden>
+   <div class="section-heading"><div><h2>配置方案</h2><p>留住顺手的设置，随时切换工作方式。</p></div><button class="button primary" id="save-profile"><svg><use href="#i-layers"/></svg>保存当前方案</button></div>
+   <div class="profile-grid" id="profile-grid"></div><div class="transfer-card"><div class="transfer-icon"><svg><use href="#i-upload"/></svg></div><div><h3>带上你的 VIA 配置</h3><p>支持导入你的 NUT65 CU 备份，也可以导出设置，随时恢复。</p></div><div class="transfer-actions"><button class="button" id="import-profile"><svg><use href="#i-upload"/></svg>导入 JSON</button><button class="button" id="export-profile"><svg><use href="#i-download"/></svg>导出配置</button></div></div><div class="info-card"><svg><use href="#i-info"/></svg><div><b>每次写入前，自动备份。</b><p>首次实时调整与每次改键前都会备份到 data / backups。连接时，方案中的灯光与设备功能载入后实时同步；键位通过“应用键位”保存。宏与旋钮设置不会被写入。</p></div></div>
+  </section>
+
+  <section class="page" id="page-tester" aria-label="按键测试" hidden>
+   <div class="section-heading"><div><h2>按键测试</h2><p>点击开始，在当前窗口中检查每一次敲击。</p></div><button class="button" id="reset-test"><svg><use href="#i-refresh"/></svg>清空记录</button></div>
+   <div class="test-card"><div class="test-header"><span id="tester-state"><i class="status-dot"></i>测试未开始</span><button class="button primary" id="toggle-test">开始测试</button></div><div class="keyboard-case"><div class="case-top"><span>NUT // 65</span><div class="lightbar"></div><span>KEY TEST</span></div><div class="keyboard" id="test-keyboard"></div><div class="case-bottom"><span>WEIKAV</span><span>PRESS ANY KEY</span><span>◉</span></div></div><div class="test-stats"><div><span>最近按键</span><b id="last-test-key">—</b></div><div><span>检测到的按键</span><b id="tested-count">0</b></div><div><span>当前同时按下</span><b id="held-count">0</b></div></div><div class="test-log" id="test-log">开始后，按键记录会显示在这里。</div></div><p class="test-note"><svg><use href="#i-info"/></svg>此处检测 Windows 发送给当前窗口的按键事件；无法测量硬件延迟、回报率，也不能拦截全部系统快捷键。Fn 本身通常不会向 Windows 输出事件。</p>
+  </section>
+  <footer class="main-footer"><span><i></i> 本地运行 · 无需账户</span><a href="docs/THIRD-PARTY-NOTICES.md" target="_blank" rel="noopener noreferrer">开源说明</a><span>NUT STUDIO <span class="footer-slash">/</span> MAKE IT YOURS.</span></footer>
+ </main>
+</div>
+<input type="file" id="file-input" accept=".json,application/json" hidden>
+<div class="toast-region" id="toasts" aria-live="polite"></div>
+<dialog id="modal"><form method="dialog"><button class="icon-button modal-close" aria-label="关闭弹窗"><svg><use href="#i-close"/></svg></button></form><div id="modal-content"></div></dialog>
+<div id="busy-overlay" class="busy-overlay" hidden><div class="busy-card"><div class="spinner"></div><h3 id="busy-title">正在读取键盘</h3><p id="busy-detail">请保持 USB 连接</p><div class="progress-track"><div id="busy-progress"></div></div></div></div>
+</body></html>

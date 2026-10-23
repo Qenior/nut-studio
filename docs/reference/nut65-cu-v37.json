@@ -1,0 +1,711 @@
+{
+  "name": "NUT65 CU",
+  "vendorId": "0x342d",
+  "productId": "0xE545",
+  "keycodes": [
+    "qmk_lighting"
+  ],
+  "menus": [
+    {
+      "label": "Lighting",
+      "content": [
+        {
+          "label": "Backlight",
+          "content": [
+            {
+              "label": "Brightness",
+              "type": "range",
+              "options": [
+                0,
+                255
+              ],
+              "content": [
+                "id_qmk_rgb_matrix_brightness",
+                3,
+                1
+              ]
+            },
+            {
+              "label": "Effect",
+              "type": "dropdown",
+              "content": [
+                "id_qmk_rgb_matrix_effect",
+                3,
+                2
+              ],
+              "options": [
+                [
+                  "All Off",
+                  0
+                ],
+                [
+                  "Solid Color",
+                  1
+                ],
+                [
+                  "Gradient Left Right",
+                  2
+                ],
+                [
+                  "Breathing",
+                  3
+                ],
+                [
+                  "Band Sat",
+                  4
+                ],
+                [
+                  "Band Val",
+                  5
+                ],
+                [
+                  "Band Pinwheel Sat",
+                  6
+                ],
+                [
+                  "Band Pinwheel Val",
+                  7
+                ],
+                [
+                  "Band Spiral Sat",
+                  8
+                ],
+                [
+                  "Band Spiral Val",
+                  9
+                ],
+                [
+                  "Cycle All",
+                  10
+                ],
+                [
+                  "Cycle Left Right",
+                  11
+                ],
+                [
+                  "Rainbow Moving Chevron",
+                  12
+                ],
+                [
+                  "Cycle Out In Dual",
+                  13
+                ],
+                [
+                  "Cycle Pinwheel",
+                  14
+                ],
+                [
+                  "Cycle Spiral",
+                  15
+                ],
+                [
+                  "Rainbow Beacon",
+                  16
+                ],
+                [
+                  "Rainbow Pinwheels",
+                  17
+                ],
+                [
+                  "Hue Breathing",
+                  18
+                ],
+                [
+                  "Hue Pendulum",
+                  19
+                ],
+                [
+                  "Hue Wave",
+                  20
+                ],
+                [
+                  "Riverflow",
+                  21
+                ],
+                [
+                  "Strip Wave",
+                  23
+                ],
+                [
+                  "Strip Knight Rider",
+                  24
+                ],
+                [
+                  "Strip Pulse",
+                  25
+                ],
+                [
+                  "Strip Lightning",
+                  26
+                ],
+                [
+                  "Strip Disco",
+                  27
+                ],
+                [
+                  "Strip Scanner",
+                  28
+                ],
+                [
+                  "Strip Sparkle",
+                  29
+                ],
+                [
+                  "Strip Strobe",
+                  30
+                ],
+                [
+                  "Strip Aurora",
+                  31
+                ],
+                [
+                  "Strip Neon",
+                  32
+                ],
+                [
+                  "Strip Laser",
+                  33
+                ],
+                [
+                  "Strip Heartbeat",
+                  34
+                ],
+                [
+                  "Strip Fireworks",
+                  35
+                ],
+                [
+                  "Strip Rainbow Chase",
+                  36
+                ]
+              ]
+            },
+            {
+              "showIf": "{id_qmk_rgb_matrix_effect} != 0",
+              "label": "Effect Speed",
+              "type": "range",
+              "options": [
+                0,
+                255
+              ],
+              "content": [
+                "id_qmk_rgb_matrix_effect_speed",
+                3,
+                3
+              ]
+            },
+            {
+              "showIf": "{id_qmk_rgb_matrix_effect} != 0",
+              "label": "Color",
+              "type": "color",
+              "content": [
+                "id_qmk_rgb_matrix_color",
+                3,
+                4
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Custom Config",
+      "content": [
+        {
+          "label": "Settings",
+          "content": [
+            {
+              "label": "Sleep Timeout",
+              "type": "dropdown",
+              "content": [
+                "id_custom_sleep_timeout",
+                0,
+                1
+              ],
+              "options": [
+                [
+                  "Off",
+                  0
+                ],
+                [
+                  "15 sec",
+                  1
+                ],
+                [
+                  "30 sec",
+                  2
+                ],
+                [
+                  "1 min",
+                  3
+                ],
+                [
+                  "2 min",
+                  4
+                ],
+                [
+                  "5 min",
+                  5
+                ],
+                [
+                  "10 min",
+                  6
+                ],
+                [
+                  "15 min",
+                  7
+                ],
+                [
+                  "20 min",
+                  8
+                ],
+                [
+                  "25 min",
+                  9
+                ],
+                [
+                  "30 min",
+                  10
+                ]
+              ]
+            },
+            {
+              "label": "Pomodoro Work (min)",
+              "type": "dropdown",
+              "content": [
+                "id_custom_pmd_work_min",
+                0,
+                2
+              ],
+              "options": [
+                [
+                  "5",
+                  5
+                ],
+                [
+                  "10",
+                  10
+                ],
+                [
+                  "15",
+                  15
+                ],
+                [
+                  "20",
+                  20
+                ],
+                [
+                  "25",
+                  25
+                ],
+                [
+                  "30",
+                  30
+                ],
+                [
+                  "35",
+                  35
+                ]
+              ]
+            },
+            {
+              "label": "Pomodoro Break (min)",
+              "type": "dropdown",
+              "content": [
+                "id_custom_pmd_break_min",
+                0,
+                3
+              ],
+              "options": [
+                [
+                  "5",
+                  5
+                ],
+                [
+                  "10",
+                  10
+                ]
+              ]
+            },
+            {
+              "label": "Side Strip Mode",
+              "type": "dropdown",
+              "content": [
+                "id_custom_rl_mode",
+                0,
+                4
+              ],
+              "options": [
+                [
+                  "SYNC",
+                  0
+                ],
+                [
+                  "MUSIC",
+                  1
+                ],
+                [
+                  "SPEED",
+                  3
+                ],
+                [
+                  "POMODORO",
+                  4
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "matrix": {
+    "rows": 6,
+    "cols": 15
+  },
+  "customKeycodes": [
+    {
+      "name": "BT1",
+      "title": "BT1",
+      "shortName": "KC_BT1"
+    },
+    {
+      "name": "BT2",
+      "title": "BT2",
+      "shortName": "KC_BT2"
+    },
+    {
+      "name": "BT3",
+      "title": "BT3",
+      "shortName": "KC_BT3"
+    },
+    {
+      "name": "2.4G",
+      "title": "2.4G",
+      "shortName": "KC_2G4"
+    },
+    {
+      "name": "USB",
+      "title": "USB",
+      "shortName": "KC_USB"
+    },
+    {
+      "name": "RL BAT",
+      "title": "RGB Side Light Battery display",
+      "shortName": "KC_BAT"
+    },
+    {
+      "name": "Charge LED",
+      "title": "Indicator LED On/Off",
+      "shortName": "LED_TOG"
+    },
+    {
+      "name": "Sys Mode",
+      "title": "System mode switching (Win/Mac)",
+      "shortName": "SYS_CUT"
+    },
+    {
+      "name": "RL DASH",
+      "title": "RGB Side Light Dashboard display (hold)",
+      "shortName": "KC_SHOW"
+    },
+    {
+      "name": "RL Music",
+      "title": "RGB Side Light Music",
+      "shortName": "MUS_CUT"
+    },
+    {
+      "name": "RL Music Adj",
+      "title": "RGB Side Light Musical calibration",
+      "shortName": "MUS_STA"
+    },
+    {
+      "name": "PMD Tog",
+      "title": "Pomodoro start/pause",
+      "shortName": "PMD_TG"
+    },
+    {
+      "name": "RL Speed",
+      "title": "RGB Side Light Speed",
+      "shortName": "RL_SPD"
+    },
+    {
+      "name": "RL PMD",
+      "title": "RGB Side Light Pomodoro",
+      "shortName": "RL_PMD"
+    },
+    {
+      "name": "RGB Protocol",
+      "title": "RGB Protocol",
+      "shortName": "KC_RPTC"
+    },
+    {
+      "name": "Game Mode",
+      "title": "Game Mode",
+      "shortName": "KC_GME"
+    },
+    {
+      "name": "RL Off",
+      "title": "RGB Side Light Turn Off",
+      "shortName": "RL_OFF"
+    },
+    {
+      "name": "VIA Driver",
+      "title": "Open VIA online driver",
+      "shortName": "KC_VIA"
+    },
+    {
+      "name": "Mac Search",
+      "title": "Open Mac search dialog",
+      "shortName": "MAC_SRCH"
+    },
+    {
+      "name": "Mac Voice",
+      "title": "Open Mac voice assit",
+      "shortName": "MAC_VOIC"
+    },
+    {
+      "name": "Mac DoNotDisturb",
+      "title": "Switch Mac Do Not Disturb",
+      "shortName": "MAC_DND"
+    },
+    {
+      "name": "Mac Pnt Full",
+      "title": "Mac print full screen",
+      "shortName": "MAC_PRT"
+    },
+    {
+      "name": "Mac Pnt Area",
+      "title": "Mac print area screen",
+      "shortName": "MAC_PRTA"
+    },
+    {
+      "name": "Mac Pnt Opt",
+      "title": "Mac print optional screen",
+      "shortName": "MAC_PRTX"
+    },
+    {
+      "name": "AI Agent Status",
+      "title": "Reflact AI Agent Working Status",
+      "shortName": "KC_AI"
+    }
+  ],
+  "layouts": {
+    "keymap": [
+      [
+        "0,0\nEsc",
+        "0,1\n1",
+        "0,2\n2",
+        "0,3\n3",
+        "0,4\n4",
+        "0,5\n5",
+        "0,6\n6",
+        "0,7\n7",
+        "0,8\n8",
+        "0,9\n9",
+        "0,10\n0",
+        "0,11\n-",
+        "0,12\n=",
+        {
+          "f": 2,
+          "w": 2
+        },
+        "0,13\nBkSp",
+        {
+          "f": 3
+        },
+        "0,14\nIns"
+      ],
+      [
+        {
+          "w": 1.5
+        },
+        "1,0\nTab",
+        "1,1\nQ",
+        "1,2\nW",
+        "1,3\nE",
+        "1,4\nR",
+        "1,5\nT",
+        "1,6\nY",
+        "1,7\nU",
+        "1,8\nI",
+        "1,9\nO",
+        "1,10\nP",
+        "1,11\n[",
+        "1,12\n]",
+        {
+          "w": 1.5
+        },
+        "1,13\n\\",
+        "1,14\nDel"
+      ],
+      [
+        {
+          "w": 1.75
+        },
+        "2,0\nCaps",
+        "2,1\nA",
+        "2,2\nS",
+        "2,3\nD",
+        "2,4\nF",
+        "2,5\nG",
+        "2,6\nH",
+        "2,7\nJ",
+        "2,8\nK",
+        "2,9\nL",
+        "2,10\n;",
+        "2,11\n'",
+        {
+          "w": 2.25
+        },
+        "2,13\nEnt",
+        "2,14\nHome"
+      ],
+      [
+        {
+          "w": 2.25
+        },
+        "3,0\nShft",
+        "3,2\nZ",
+        "3,3\nX",
+        "3,4\nC",
+        "3,5\nV",
+        "3,6\nB",
+        "3,7\nN",
+        "3,8\nM",
+        "3,9\n,",
+        "3,10\n.",
+        "3,11\n/",
+        {
+          "w": 1.75
+        },
+        "3,12\nShft",
+        "3,13\nUp",
+        "3,14\nEnd"
+      ],
+      [
+        {
+          "w": 1.25
+        },
+        "4,0\nCtrl",
+        {
+          "w": 1.25
+        },
+        "4,1\nWin",
+        {
+          "w": 1.25
+        },
+        "4,2\nAlt",
+        {
+          "w": 6.25
+        },
+        "4,5\nSpace",
+        {
+          "w": 1.25
+        },
+        "4,10\nAlt",
+        {
+          "w": 1.25
+        },
+        "4,11\nFN",
+        {
+          "x": 0.5
+        },
+        "4,12\nLeft",
+        "4,13\nDown",
+        "4,14\nRight"
+      ],
+      [
+        {
+          "w": 16,
+          "h": 0.5
+        },
+        "5,0",
+        {
+          "x": -16,
+          "w": 16,
+          "h": 0.5
+        },
+        "5,1",
+        {
+          "x": -16,
+          "w": 16,
+          "h": 0.5
+        },
+        "5,2",
+        {
+          "x": -16,
+          "w": 16,
+          "h": 0.5
+        },
+        "5,3",
+        {
+          "x": -16,
+          "w": 16,
+          "h": 0.5
+        },
+        "5,4",
+        {
+          "x": -16,
+          "w": 16,
+          "h": 0.5
+        },
+        "5,5",
+        {
+          "x": -16,
+          "w": 16,
+          "h": 0.5
+        },
+        "5,6",
+        {
+          "x": -16,
+          "w": 16,
+          "h": 0.5
+        },
+        "5,7",
+        {
+          "x": -16,
+          "w": 16,
+          "h": 0.5
+        },
+        "5,8",
+        {
+          "x": -16,
+          "w": 16,
+          "h": 0.5
+        },
+        "5,9",
+        {
+          "x": -16,
+          "w": 16,
+          "h": 0.5
+        },
+        "5,10",
+        {
+          "x": -16,
+          "w": 16,
+          "h": 0.5
+        },
+        "5,11",
+        {
+          "x": -16,
+          "w": 16,
+          "h": 0.5
+        },
+        "5,12",
+        {
+          "x": -16,
+          "w": 16,
+          "h": 0.5
+        },
+        "5,13",
+        {
+          "x": -16,
+          "w": 16,
+          "h": 0.5
+        },
+        "5,14"
+      ]
+    ]
+  }
+}

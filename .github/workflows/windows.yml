@@ -1,0 +1,47 @@
+name: Windows build
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: windows-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+      - name: Test
+        shell: pwsh
+        run: ./test.ps1
+      - name: Build
+        shell: pwsh
+        run: ./build.ps1
+      - name: Package
+        shell: pwsh
+        run: python scripts/package.py
+      - uses: actions/upload-artifact@v7
+        with:
+          name: NUT-Studio-Windows
+          path: |
+            dist/NUT-Studio-Win11-v*.zip
+            dist/NUT-Studio-v*.exe
+            dist/NUT-Studio-Source-v*.zip
+            dist/SHA256SUMS.txt
+          if-no-files-found: error
+          retention-days: 14
+
