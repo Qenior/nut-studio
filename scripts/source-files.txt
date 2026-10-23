@@ -9,6 +9,7 @@ LICENSE
 README.md
 VERSION
 build.ps1
+docs/ACKNOWLEDGEMENTS.md
 docs/CHANGELOG.md
 docs/PROTOCOL.md
 docs/PUBLISH.md

@@ -14,7 +14,9 @@ MIT 许可证见 [LICENSE](LICENSE)；第三方来源与许可见 [第三方声�
 
 适用于 Windows 11 x64 的 WEIKAV（维咖）NUT65 CU 配置工具。支持可视化改键、前灯带调节、CU 固件扩展设置、本机方案和按键测试。深色界面与铜色点缀，本机运行，无需账户。
 
-本版主要适配 [打包还是带走 / weika-nut65-firmware](https://gitee.com/packOrTake/weika-nut65-firmware) CU V37 配置定义，参考提交 `8427691`。**CU 的主要发光部位是前方 80 颗灯珠的灯带，另有 8 颗状态指示灯。**
+**开源致谢：NUT Studio 的 NUT65 CU 适配使用并参考了 [打包还是带走（packOrTake）的 weika-nut65-firmware](https://gitee.com/packOrTake/weika-nut65-firmware) 开源项目。感谢原作者的贡献。** 具体采用 CU V37 的配置定义、灯效名称与编号、自定义菜单和专用键码语义，参考提交为 `8427691`。发布包保留原作者版权声明及 MIT 许可全文；完整中文说明见 [开源来源与致谢](docs/ACKNOWLEDGEMENTS.md)。
+
+**CU 的主要发光部位是前方 80 颗灯珠的灯带，另有 8 颗状态指示灯。**
 
 ## 启动与更新
 
